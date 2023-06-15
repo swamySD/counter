@@ -1,29 +1,22 @@
 const initialstate={
-    count:1
+    count:0
 }
 
 const counterReducer=(state=initialstate,action)=>{
  switch (action.type) {
-    case 'INCREMENT':
-        
+    case 'INPUT_NUMBER':
         return{
-            ...state,
-            count:state.count++
-        
+            count:action.payload
         }
+    case 'INCREMENT':
+        return{
+            count:state.count+1}
         case 'DECREMENT':
-            return{
-                ...state,
-                count:state.count--
-            }
+            return{count:state.count-1}
         case 'RESET':
-            return{
-                
-                count:state.count=0
-            }    
- 
+            return{count:0 }    
     default:
-        return state
+    return state
  }
 }
 
